@@ -1,6 +1,7 @@
 package com.movie.web.grade;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Vector;
 
 /**
@@ -17,7 +18,7 @@ public interface GradeService {
 	// R 성적표 리스트 출력
 	public ArrayList<GradeBean> getList();
 	// R 성적표 조회(학번)
-	public GradeBean getGradeByHak(int hak);
+	public Map<String,Object> getGradeByHak(int hak);
 	// R 성적표 조회(이름)
 	public ArrayList<GradeBean> getGradesByName(String name);
 	// R 카운트 조회

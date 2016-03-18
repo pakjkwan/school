@@ -1,12 +1,13 @@
 package com.movie.web.grade;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.ArrayList;
 
 public class GradeServiceImpl implements GradeService{
 	// 멤버 필드
 	ArrayList<GradeBean> gradeList;
-	
+	GradeDAO dao = new GradeDAOImpl(); 
 	public GradeServiceImpl() {
 		gradeList = new ArrayList<GradeBean>(); // 초기화
 	}
@@ -28,19 +29,10 @@ public class GradeServiceImpl implements GradeService{
 	}
 
 	@Override
-	public GradeBean getGradeByHak(int hak) {
+	public Map<String,Object> getGradeByHak(int hak) {
 		// 성적표 조회(학번)
 	
-		GradeBean tempGrade = new GradeBean();
-		for (int i = 0; i < gradeList.size(); i++) {
-			// arr[i]
-			int searchHak = gradeList.get(i).getHak();
-			if (hak == searchHak) {
-				tempGrade = gradeList.get(i);
-				break;
-			} 
-		}
-		return tempGrade;
+		return dao.selectGradeByHak(hak);
 	}
 
 	@Override
@@ -48,7 +40,7 @@ public class GradeServiceImpl implements GradeService{
 		// 성적표 조회(이름)
 		ArrayList<GradeBean> tempList = new ArrayList<GradeBean>();
 		for (int i = 0; i < gradeList.size(); i++) {
-			if (name.equals(gradeList.get(i).getName())) {
+			if (name.equals(gradeList.get(i).getId())) {
 				tempList.add(gradeList.get(i));
 			}
 		}
@@ -60,18 +52,7 @@ public class GradeServiceImpl implements GradeService{
 	public String update(GradeBean grade) {
 		// 성적표 수정
 		String result = "수정하려는 학번이 존재하지 않음";
-		if (gradeList.contains(getGradeByHak(grade.getHak()))) {
-			GradeBean searchedGrade = getGradeByHak(grade.getHak());
-			searchedGrade.setJava(grade.getJava());
-			searchedGrade.setSql(grade.getSql());
-			searchedGrade.setJsp(grade.getJsp());
-			searchedGrade.setSpring(grade.getSpring());
-			result = "수정 성공";
-		}
-		/*
-		this.delete(grade.getHak());
-		this.input(grade);
-		*/
+		
 		return result;
 	}
 

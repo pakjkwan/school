@@ -15,7 +15,9 @@ VALUES ('lee','이순신','1','부산',000909);
 INSERT INTO Member(id,name,password,addr,birth)
 VALUES ('song','송준기','1','대전',041001);
 INSERT INTO Member
-VALUES ('yoon','윤','1','인천',060201);
+VALUES ('yoon','윤손하','1','인천',060201);
+INSERT INTO Member(id,name,password,addr,birth)
+VALUES ('kim2','김유신','1','LA',850501);
 
 SELECT * FROM Member;
 

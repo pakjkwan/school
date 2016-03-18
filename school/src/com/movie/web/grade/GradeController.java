@@ -2,6 +2,7 @@ package com.movie.web.grade;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class GradeController {
 	public static void main(String[] args) {
@@ -19,7 +20,7 @@ public class GradeController {
 			case 2:
 				System.out.println("수정하려는 성적표의 학번,자바,SQL,JSP,스프링 점수 입력하시오");
 				int hak = s.nextInt();
-				String name = service.getGradeByHak(hak).getName();
+				String name = service.getGradeByHak(hak).getId();
 				System.out.println(service.update(
 						new GradeBean(hak,name,s.nextInt(),s.nextInt(),s.nextInt(),s.nextInt())));
 				break;
@@ -37,8 +38,8 @@ public class GradeController {
 				break;
 			case 6:
 				System.out.println("조회하려는 학번을 입력하시오");
-				GradeBean temp = service.getGradeByHak(s.nextInt());
-				System.out.println((temp.getName() == null) ? "조회하려는 학번이 없습니다." : temp.toString());
+				Map<String,Object> map = service.getGradeByHak(s.nextInt());
+				
 				break;
 			case 7:
 				System.out.println(service.getCount());

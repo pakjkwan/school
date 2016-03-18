@@ -21,10 +21,10 @@ public class OracleTest {
 			while (rs.next()) {
 				sample = rs.getString("sample");
 			}
-			System.out.println("»ùÇÃ : "+sample);
+			System.out.println("ìƒ˜í”Œ : "+sample);
 			
 		} catch (Exception e) {
-			System.out.println("¿À¶óÅ¬ ¿¡·¯ ¹ß»ı");
+			System.out.println("í…ŒìŠ¤íŠ¸ ì—ëŸ¬ë°œìƒ");
 			e.printStackTrace();
 		} 
 		
