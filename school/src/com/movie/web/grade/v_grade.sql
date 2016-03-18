@@ -20,6 +20,6 @@ SELECT * FROM GradeMember
 WHERE name = '김유신';
 
 
-
+SELECT * FROM GradeMember WHERE hak = '20160001'
 
 

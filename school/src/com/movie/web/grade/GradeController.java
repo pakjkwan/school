@@ -20,9 +20,8 @@ public class GradeController {
 			case 2:
 				System.out.println("수정하려는 성적표의 학번,자바,SQL,JSP,스프링 점수 입력하시오");
 				int hak = s.nextInt();
-				String name = service.getGradeByHak(hak).getId();
-				System.out.println(service.update(
-						new GradeBean(hak,name,s.nextInt(),s.nextInt(),s.nextInt(),s.nextInt())));
+				
+				
 				break;
 			case 3:
 				System.out.println("삭제하려는 학번을 입력하시오");
@@ -38,8 +37,7 @@ public class GradeController {
 				break;
 			case 6:
 				System.out.println("조회하려는 학번을 입력하시오");
-				Map<String,Object> map = service.getGradeByHak(s.nextInt());
-				
+				System.out.println(service.getGradeByHak(s.nextInt()).toString());
 				break;
 			case 7:
 				System.out.println(service.getCount());

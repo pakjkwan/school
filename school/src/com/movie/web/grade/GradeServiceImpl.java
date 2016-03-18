@@ -29,7 +29,7 @@ public class GradeServiceImpl implements GradeService{
 	}
 
 	@Override
-	public Map<String,Object> getGradeByHak(int hak) {
+	public GradeMemberBean getGradeByHak(int hak) {
 		// 성적표 조회(학번)
 	
 		return dao.selectGradeByHak(hak);

@@ -9,7 +9,7 @@ public interface GradeDAO {
 		// R 성적표 리스트 출력
 		public ArrayList<GradeBean> selectAll();
 		// R 성적표 조회(학번)
-		public Map<String,Object> selectGradeByHak(int hak);
+		public GradeMemberBean selectGradeByHak(int hak);
 		// R 성적표 조회(이름)
 		public ArrayList<GradeBean> selecctGradesByName(String name);
 		// R 카운트 조회

@@ -32,27 +32,29 @@ public class GradeDAOImpl implements GradeDAO {
 	}
 
 	@Override
-	public Map<String,Object> selectGradeByHak(int hak) {
+	public GradeMemberBean selectGradeByHak(int hak) {
 		MemberBean member = new MemberBean();
 		GradeBean grade = new GradeBean();
 		Map<String,Object> map = new HashMap<String,Object>();
+		GradeMemberBean bean = new GradeMemberBean();
 		try {
 			Class.forName(Constants.ORACLE_DRIVER);
 			conn = DriverManager.getConnection(Constants.ORACLE_URL,
 					Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery("SELECT * FROM Member WHERE id ='"+hak+"'");
+			rs = stmt.executeQuery("SELECT * FROM GradeMember WHERE hak ='"+hak+"'");
 			while (rs.next()) {
-				member.setId(rs.getString("id"));
-				member.setName(rs.getString("name"));
-				member.setPassword(rs.getString("password"));
-				member.setAddr(rs.getString("addr"));
-				member.setBirth(rs.getInt("birth"));
-				grade.setHak(rs.getInt("hak"));
-				grade.setJava(rs.getInt("java"));
-				grade.setJsp(rs.getInt("jsp"));
-				grade.setSpring(rs.getInt("spring"));
-				grade.setSql(rs.getInt("sql"));
+				bean.setId(rs.getString("id"));
+				bean.setName(rs.getString("name"));
+				bean.setPassword(rs.getString("password"));
+				bean.setAddr(rs.getString("addr"));
+				bean.setBirth(rs.getInt("birth"));
+				bean.setId(rs.getString("id"));
+				bean.setHak(rs.getInt("hak"));
+				bean.setJava(rs.getInt("java"));
+				bean.setJsp(rs.getInt("jsp"));
+				bean.setSpring(rs.getInt("spring"));
+				bean.setSql(rs.getInt("sql"));
 			}
 			
 		} catch (Exception e) {
@@ -62,7 +64,7 @@ public class GradeDAOImpl implements GradeDAO {
 		// System.out.println("쿼리 조회 결과 :"+temp.getAddr());
 		map.put("member", member);
 		map.put("grade", grade);
-		return map;
+		return bean;
 	}
 
 	@Override
