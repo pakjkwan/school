@@ -3,10 +3,12 @@ package com.movie.web.global;
 public class Command {
 	private String directory,action,view;
 
+	public Command() {}
+	
 	public Command(String directory,String action) {
 		this.directory = directory;
 		this.action = action;
-		this.view = Constants.VIEWS+"/"+directory+"/"+action+".jsp";
+		this.view = Constants.VIEWS+directory+"/"+action+".jsp";
 	}
 	
 	public String getDirectory() {
