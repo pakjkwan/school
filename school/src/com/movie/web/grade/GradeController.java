@@ -32,7 +32,7 @@ public class GradeController {
 				break;
 			case 5:
 				System.out.println("조회하려는 이름을 입력하시오");
-				ArrayList<GradeBean>tempList = service.getGradesByName(s.next());
+				ArrayList<GradeMemberBean>tempList = service.getGradesByName(s.next());
 				System.out.println((tempList.size() == 0) ? "조회하려는 이름이 없습니다." : tempList);
 				break;
 			case 6:

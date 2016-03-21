@@ -11,7 +11,7 @@ public interface GradeDAO {
 		// R 성적표 조회(학번)
 		public GradeMemberBean selectGradeByHak(int hak);
 		// R 성적표 조회(이름)
-		public ArrayList<GradeBean> selecctGradesByName(String name);
+		public ArrayList<GradeMemberBean> selecctGradesByName(String name);
 		// R 카운트 조회
 		public int count();
 		// U 성적표 수정

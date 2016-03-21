@@ -1,3 +1,5 @@
+DROP VIEW GradeMember CASCADE CONSTRAINT;
+
 CREATE OR REPLACE VIEW GradeMember
 AS
 SELECT 
@@ -21,5 +23,14 @@ WHERE name = '김유신';
 
 
 SELECT * FROM GradeMember WHERE hak = '20160001'
+
+
+SELECT COUNT(*) AS count
+FROM GradeMember;
+
+SELECT COUNT(*) FROM  GradeMember;
+
+
+
 
 

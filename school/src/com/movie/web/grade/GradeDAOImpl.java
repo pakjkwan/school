@@ -68,15 +68,52 @@ public class GradeDAOImpl implements GradeDAO {
 	}
 
 	@Override
-	public ArrayList<GradeBean> selecctGradesByName(String name) {
+	public ArrayList<GradeMemberBean> selecctGradesByName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<GradeMemberBean> list = new ArrayList<>();		
+		try {
+			Class.forName(Constants.ORACLE_DRIVER);
+			conn = DriverManager.getConnection(Constants.ORACLE_URL,
+					Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM GradeMember WHERE name ='"+name+"'");
+			while (rs.next()) {
+				GradeMemberBean gmb =new GradeMemberBean();
+				gmb.setHak(rs.getInt("hak"));
+				gmb.setId(rs.getString("id"));
+				gmb.setJava(rs.getInt("java"));
+				gmb.setJsp(rs.getInt("jsp"));
+				gmb.setSql(rs.getInt("sql"));
+				gmb.setSpring(rs.getInt("spring"));
+				gmb.setPassword(rs.getString("password"));
+				gmb.setAddr(rs.getString("addr"));
+				gmb.setName(rs.getString("name"));
+				gmb.setBirth(rs.getInt("birth"));
+				list.add(gmb);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		int count = 0;
+		try {
+			Class.forName(Constants.ORACLE_DRIVER);
+			conn = DriverManager.getConnection(Constants.ORACLE_URL,
+					Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
+			stmt = conn.createStatement();
+			stmt.executeQuery("SELECT * FROM GradeMember").last();
+			count = rs.getRow();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
 	}
 
 	@Override

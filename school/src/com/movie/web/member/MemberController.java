@@ -1,31 +1,27 @@
 package com.movie.web.member;
 
-import java.util.Scanner;
+import java.io.IOException;
 
-public class MemberController {
-	public static void main(String[] args) {
-		MemberService service = new MemberServiceImpl();
-		Scanner s = new Scanner(System.in);
-		while (true) {
-			System.out.println("[메뉴]1.회원가입 2.로그인 3.내정보보기 4.내정보수정 5.회원탈퇴 0.종료");
-			switch (s.nextInt()) {
-			case 1: 
-				System.out.println("아이디,비번,이름,생년월일,주소 입력");
-				service.join(new MemberBean(s.next(),s.next(),s.next(),s.next(),s.nextInt()));
-				break;
-			case 2: break;
-			case 3: 
-				System.out.println("아이디 입력");
-				System.out.println(service.detail(s.next()).toString());
-				break;
-			case 4: break;
-			case 5: break;
-			case 0: System.out.println("시스템 종료"); return;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-			default:
-				return;
-				
-			}
-		}
+@WebServlet("/member/login_form.do")
+public class MemberController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	// 페이지 이동시에는 doGet  
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("인덱스에서 들어옴");
+		RequestDispatcher dis = request.getRequestDispatcher("/WEB-INF/views/member/login_form.jsp");
+		dis.forward(request, response);
 	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
 }

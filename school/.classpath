@@ -17,5 +17,11 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/jee/jar/cos.jar"/>
+	<classpathentry kind="lib" path="C:/jee/jar/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/jee/jar/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/jee/jar/jstl.jar"/>
+	<classpathentry kind="lib" path="C:/jee/jar/mail.jar"/>
+	<classpathentry kind="lib" path="C:/jee/jar/standard.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
