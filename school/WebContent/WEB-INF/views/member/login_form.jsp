@@ -9,5 +9,8 @@
 	<div>
 		<h2> 로그인 화면에 들어옴 </h2>
 	</div>
+	<div><h4>아이디가 없으면, 계정을 생성하시오</h4>
+		<a href="${context}/member/join_form.do">회원가입</a>
+	</div>
 </body>
 </html>

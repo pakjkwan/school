@@ -18,5 +18,6 @@ public class Constants {
 	public static final String MSSQL_URL = "";
 	public static final String MSSQL_ID = "";
 	public static final String MSSQL_PASSWORD = "";
+	public static final String VIEWS = "/WEB-INF/views/";
 	
 }
