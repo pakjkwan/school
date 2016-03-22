@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.movie.web.global.Constants;
+import com.movie.web.global.DatabaseFactory;
+import com.movie.web.global.Vendor;
 import com.movie.web.member.MemberBean;
 
 public class GradeDAOImpl implements GradeDAO {
@@ -18,6 +20,11 @@ public class GradeDAOImpl implements GradeDAO {
 	private Statement stmt; // 쿼리 전송 객체
 	private PreparedStatement pstmt; // 쿼리 전송 객체2
 	private ResultSet rs; // 리턴값 회수 객체
+	
+	public GradeDAOImpl() {
+		conn = DatabaseFactory.getDatabase(Vendor.ORACLE, Constants.ID, Constants.PASSWORD)
+				.getConnection();
+	}
 	
 	@Override
 	public void insert(GradeBean grade) {
@@ -40,7 +47,7 @@ public class GradeDAOImpl implements GradeDAO {
 		try {
 			Class.forName(Constants.ORACLE_DRIVER);
 			conn = DriverManager.getConnection(Constants.ORACLE_URL,
-					Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
+					Constants.ID, Constants.PASSWORD);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM GradeMember WHERE hak ='"+hak+"'");
 			while (rs.next()) {
@@ -74,7 +81,7 @@ public class GradeDAOImpl implements GradeDAO {
 		try {
 			Class.forName(Constants.ORACLE_DRIVER);
 			conn = DriverManager.getConnection(Constants.ORACLE_URL,
-					Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
+					Constants.ID, Constants.PASSWORD);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM GradeMember WHERE name ='"+name+"'");
 			while (rs.next()) {
@@ -105,7 +112,7 @@ public class GradeDAOImpl implements GradeDAO {
 		try {
 			Class.forName(Constants.ORACLE_DRIVER);
 			conn = DriverManager.getConnection(Constants.ORACLE_URL,
-					Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
+					Constants.ID, Constants.PASSWORD);
 			stmt = conn.createStatement();
 			stmt.executeQuery("SELECT * FROM GradeMember").last();
 			count = rs.getRow();

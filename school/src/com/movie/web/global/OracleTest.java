@@ -14,7 +14,7 @@ public class OracleTest {
 		try {
 			Class.forName(Constants.ORACLE_DRIVER);
 			conn = DriverManager.getConnection(Constants.ORACLE_URL,
-					Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
+					Constants.ID, Constants.PASSWORD);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM Test");
 			String sample = "";
