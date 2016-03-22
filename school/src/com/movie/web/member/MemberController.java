@@ -14,7 +14,7 @@ import com.movie.web.global.CommandFactory;
 import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane.ScalableIconUIResource;
 
 @WebServlet({"/member/login_form.do",
-	"/member/join_form.do",
+	"/member/join_form.do","/member/update_form.do",
 	"/member/join.do",
 	"/member/login.do"})
 public class MemberController extends HttpServlet {
@@ -35,29 +35,33 @@ public class MemberController extends HttpServlet {
 		
 		switch (action) {
 		case "join":
-			id = request.getParameter("id");
-			System.out.println("ID :"+id);
+			
 			break;
 		case "login" :
 			
 			if (service.isMember(request.getParameter("id")) == true) {
-				System.out.println("====  아이디가 존재함 ===========");
+				System.out.println("=== 아이디가 존재함 ===");
 				member = service.login(request.getParameter("id"), request.getParameter("password"));
 				if (member == null) {
 					command = CommandFactory.createCommand(directory,"login_form");
 				}else{
-					System.out.println("로그인 성공");
+					System.out.println("=== 로그인 성공 ===");
 					request.setAttribute("member", member);
 					command = CommandFactory.createCommand(directory,"detail");
 				}
 				
 			} else {
-				System.out.println("====  로그인 실패 ===========");
+				System.out.println("=== 로그인 실패 ===");
 				command = CommandFactory.createCommand(directory,"login_form");
 			}
 			
 			
 			break;
+			case "update_form":
+				System.out.println("=== 수정 폼으로 진입 ===");
+				request.setAttribute("member", service.detail(request.getParameter("id")));
+				command = CommandFactory.createCommand(directory,action);
+				break;
 		default:
 			command = CommandFactory.createCommand(directory,action);
 			break;
