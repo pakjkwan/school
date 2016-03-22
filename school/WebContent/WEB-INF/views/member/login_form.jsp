@@ -1,53 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="context" value="<%=request.getContextPath()%>"></c:set>
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>로그인 폼</title>
-</head>
-<body>
-	<div>
-		<h2> 로그인 </h2>
-		<!--  -->
-		<form action="${context}/member/login.do" name="frm" method="get">
-		<table>
-			<tr>
-				<td>
-					<h3>아이디</h3>
-				</td>
-				<td>
-					<input type="text" name="id" value="" autofocus="autofocus" required="required"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<h3>비밀번호</h3>
-				</td>
-				<td>
-					<input type="password" required="required" />
-				</td>
-			</tr>
-		</table>
-		<div>
-			<input type="submit" value="로그인" />
-			<input type="reset" value="취소" />
+<jsp:include page="../global/header.jsp"/>
+	<style type="text/css">
+		#login{
+			margin-top: 5em;
+		}
+	</style>
+
+	<div id="login">
+		<div class="loginTop text-center" >
+			<img src="${context}/img/member/paper_plane.png" border="0" height="160px" width="160px"/>
+		</div>
+		<form action="${context}/member/login" method="post" name="loginForm" class="form-horizontal">
+		<div class="loginCenter row" style="margin-left: 43.5%;">
+				<fieldset class="loginField">
+					<div class="form-group">
+					 	<label for="input_id" class="control-label sr-only">아이디</label>
+					 	<div class="col-sm-3">
+							<input type="text" class="form-control" id="id" name="id" placeholder="아이디를 입력하세요"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="input_pw" class="control-label sr-only">비밀번호</label>
+					 	<div class="col-sm-3">
+							<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호를 입력하세요"/>
+						</div>
+					</div>
+				</fieldset>
+			
+		</div>
+		<div class="input_button text-center">
+			<input type="submit" id="loginButton" class="btn btn-primary" value ="로그인"/>
+			<input type="reset" id="joinButton" class="btn btn-primary" value ="취소"/>
 		</div>
 		</form>
 	</div>
-	
-	
-	
-	
-	
-	
 </body>
 </html>
-
-
-
-
-
-
-
