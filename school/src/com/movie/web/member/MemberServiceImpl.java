@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public MemberBean login(String id, String password) {
 		MemberBean member = new MemberBean();
-		member = dao.selectMember(id);
+		member = dao.selectById(id, password);
 		if (member.getPassword().equals(password)) {
 			return member;
 		} else {
