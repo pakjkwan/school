@@ -41,14 +41,16 @@ public class MemberController extends HttpServlet {
 		case "login" :
 			
 			if (service.isMember(request.getParameter("id")) == true) {
-				System.out.println("====  로그인 성공 ===========");
+				System.out.println("====  아이디가 존재함 ===========");
 				member = service.login(request.getParameter("id"), request.getParameter("password"));
 				if (member == null) {
-					request.setAttribute("message","비밀번호가 일치하지 않습니다");
-					command = CommandFactory.createCommand(directory,"login_fail");
+					command = CommandFactory.createCommand(directory,"login_form");
+				}else{
+					System.out.println("로그인 성공");
+					request.setAttribute("member", member);
+					command = CommandFactory.createCommand(directory,"detail");
 				}
-				request.setAttribute("member", member);
-				command = CommandFactory.createCommand(directory,"detail");
+				
 			} else {
 				System.out.println("====  로그인 실패 ===========");
 				command = CommandFactory.createCommand(directory,"login_form");

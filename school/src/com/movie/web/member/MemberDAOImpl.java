@@ -43,7 +43,13 @@ public class MemberDAOImpl implements MemberDAO{
 			e.printStackTrace();
 		}
 		System.out.println("쿼리 조회 결과 :"+temp.getAddr());
-		return temp;
+		if (temp.getAddr() != null) {
+			System.out.println("쿼리 조회 결과 :"+temp.getAddr());
+			return temp;
+		} else {
+			System.out.println("쿼리 조회 결과 : null ");
+			return null;
+		}
 		
 	}
 

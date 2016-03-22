@@ -20,9 +20,11 @@ public class MemberServiceImpl implements MemberService{
 	public MemberBean login(String id, String password) {
 		MemberBean member = new MemberBean();
 		member = dao.selectById(id, password);
-		if (member.getPassword().equals(password)) {
+		if (member != null) {
+			System.out.println("서비스 : 멤버가 널이 아님");
 			return member;
 		} else {
+			System.out.println("서비스 : 멤버가 널임");
 			return null;
 		}
 		// 로그인
