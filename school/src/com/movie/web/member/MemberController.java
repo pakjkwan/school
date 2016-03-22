@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.movie.web.global.Command;
 import com.movie.web.global.CommandFactory;
+import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane.ScalableIconUIResource;
 
 @WebServlet({"/member/login_form.do",
 	"/member/join_form.do",
@@ -23,6 +24,9 @@ public class MemberController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	System.out.println("인덱스에서 들어옴");
     	Command command = new Command();
+    	MemberService service = new MemberServiceImpl();
+    	MemberBean member = new MemberBean();
+    	String id="",password="";
     	String path = request.getServletPath();
 		String temp = path.split("/")[2];
 		String directory = path.split("/")[1];
@@ -31,12 +35,21 @@ public class MemberController extends HttpServlet {
 		
 		switch (action) {
 		case "join":
-			String id = request.getParameter("id");
+			id = request.getParameter("id");
 			System.out.println("ID :"+id);
 			break;
 		case "login" :
-			System.out.println("====  로그인 ===========");
-			command = CommandFactory.createCommand(directory,"detail");
+			
+			if (service.isMember(request.getParameter("id")) == true) {
+				System.out.println("====  로그인 성공 ===========");
+				request.setAttribute("member", service.login(request.getParameter("id"), request.getParameter("password")));
+				command = CommandFactory.createCommand(directory,"detail");
+			} else {
+				System.out.println("====  로그인 실패 ===========");
+				command = CommandFactory.createCommand(directory,"login_form");
+			}
+			
+			
 			break;
 		default:
 			command = CommandFactory.createCommand(directory,action);

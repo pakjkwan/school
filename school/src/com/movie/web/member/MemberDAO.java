@@ -6,4 +6,5 @@ public interface MemberDAO {
 	public MemberBean selectMember(String id);
 	public void update(MemberBean member);
 	public void delete(String id);
+	public boolean isMember(String id);
 }
