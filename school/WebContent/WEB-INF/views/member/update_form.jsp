@@ -10,7 +10,7 @@
 					<div class="form-group">
 					 	<label for="input_id" class="col-sm-4 control-label">아이디</label>
 					 	<div class="col-sm-4">
-							<input type="text" class="form-control" id="id" name="id" value="${member.id}"/>
+							<input type="text" class="form-control" id="id" name="id" value="${member.id}" readonly="readonly"/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -22,7 +22,7 @@
 					<div class="form-group">
 						<label for="input_name" class="col-sm-4 control-label">이름</label>
 					 	<div class="col-sm-4">
-							<input type="text" class="form-control" id="name" name="name" value="${member.name}"/>
+							<input type="text" class="form-control" id="name" name="name" value="${member.name}" readonly="readonly"/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -34,7 +34,7 @@
 					<div class="form-group">
 						<label for="input_name" class="col-sm-4 control-label">생년월일</label>
 					 	<div class="col-sm-4">
-							<input type="date" class="form-control" id="birth" name="birth" value="${member.birth}"/>
+							<input type="text" class="form-control" id="birth" name="birth" value="${member.birth}" readonly="readonly"/>
 						</div>
 					</div>
 					<div class="input_button text-center">

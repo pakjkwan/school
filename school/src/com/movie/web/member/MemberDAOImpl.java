@@ -15,6 +15,11 @@ public class MemberDAOImpl implements MemberDAO{
 	private PreparedStatement pstmt; // 쿼리 전송 객체2
 	private ResultSet rs; // 리턴값 회수 객체
 	
+	public MemberDAOImpl() {
+	
+		
+	}
+	
 	@Override
 	public void insert(MemberBean member) {
 		// TODO Auto-generated method stub
@@ -25,9 +30,6 @@ public class MemberDAOImpl implements MemberDAO{
 	public MemberBean selectById(String id, String password) {
 		MemberBean temp = new MemberBean();
 		try {
-			Class.forName(Constants.ORACLE_DRIVER);
-			conn = DriverManager.getConnection(Constants.ORACLE_URL,
-					Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM Member WHERE id ='"+id+"' and password = '"+password+"'");
 			while (rs.next()) {
@@ -57,9 +59,6 @@ public class MemberDAOImpl implements MemberDAO{
 	public MemberBean selectMember(String id) {
 		MemberBean temp = new MemberBean();
 		try {
-			Class.forName(Constants.ORACLE_DRIVER);
-			conn = DriverManager.getConnection(Constants.ORACLE_URL,
-					Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM Member WHERE id ='"+id+"'");
 			while (rs.next()) {
@@ -96,8 +95,6 @@ public class MemberDAOImpl implements MemberDAO{
 		boolean result = false;
 		
 		try {
-			Class.forName(Constants.ORACLE_DRIVER);
-			conn = DriverManager.getConnection(Constants.ORACLE_URL, Constants.ORACLE_ID, Constants.ORACLE_PASSWORD);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM Member WHERE id = " + "'" + id + "'");
 			
