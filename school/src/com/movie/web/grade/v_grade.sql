@@ -3,7 +3,7 @@ DROP VIEW GradeMember CASCADE CONSTRAINT;
 CREATE OR REPLACE VIEW GradeMember
 AS
 SELECT 
-	g.hak AS hak,
+	g.score_seq AS score_seq,
 	g.id  AS id,
 	g.java AS java,
 	g.jsp AS jsp,
@@ -30,6 +30,8 @@ FROM GradeMember;
 
 SELECT COUNT(*) FROM  GradeMember;
 
+DELETE FROM GradeMember 
+WHERE score_seq = 20160001;
 
 
 
