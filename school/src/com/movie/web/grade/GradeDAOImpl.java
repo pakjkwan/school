@@ -45,9 +45,6 @@ public class GradeDAOImpl implements GradeDAO {
 		Map<String,Object> map = new HashMap<String,Object>();
 		GradeMemberBean bean = new GradeMemberBean();
 		try {
-			Class.forName(Constants.ORACLE_DRIVER);
-			conn = DriverManager.getConnection(Constants.ORACLE_URL,
-					Constants.ID, Constants.PASSWORD);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM GradeMember WHERE hak ='"+hak+"'");
 			while (rs.next()) {
@@ -79,9 +76,6 @@ public class GradeDAOImpl implements GradeDAO {
 		// TODO Auto-generated method stub
 		ArrayList<GradeMemberBean> list = new ArrayList<>();		
 		try {
-			Class.forName(Constants.ORACLE_DRIVER);
-			conn = DriverManager.getConnection(Constants.ORACLE_URL,
-					Constants.ID, Constants.PASSWORD);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM GradeMember WHERE name ='"+name+"'");
 			while (rs.next()) {
@@ -110,9 +104,6 @@ public class GradeDAOImpl implements GradeDAO {
 	public int count() {
 		int count = 0;
 		try {
-			Class.forName(Constants.ORACLE_DRIVER);
-			conn = DriverManager.getConnection(Constants.ORACLE_URL,
-					Constants.ID, Constants.PASSWORD);
 			stmt = conn.createStatement();
 			stmt.executeQuery("SELECT * FROM GradeMember").last();
 			count = rs.getRow();
