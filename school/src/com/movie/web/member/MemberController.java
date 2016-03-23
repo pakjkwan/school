@@ -16,7 +16,7 @@ import com.movie.web.global.Seperator;
 
 @WebServlet({"/member/login_form.do",
 	"/member/join_form.do","/member/update_form.do",
-	"/member/join.do","/member/update.do",
+	"/member/join.do","/member/update.do","/member/delete.do",
 	"/member/login.do"})
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
