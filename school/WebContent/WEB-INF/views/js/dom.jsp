@@ -115,14 +115,14 @@
 		},
 		selectElementsByTagName : function() {
 			var elems = document.getElementsByTagName('span');
-			for (var i = 0, elem ; elem = elems[i]; i++) {
+			for (var i = 0, elem = null; elem = elems[i]; i++) {
 				elem.style.backgroundColor = 'red';
 			}
 		},
 		selectElementsByName : function() {
 			var elems = document.getElementsByName('bbb');
-			for (var i = 0, element ; element = elems[i]; i++) {
-				element.style.backgroundColor = 'red';
+			for (var i = 0, elem = null ; elem = elems[i]; i++) {
+				elem.style.backgroundColor = 'red';
 			}
 		}
 	}
