@@ -77,6 +77,9 @@ var opr = {
 		var flag = 4; // 라면 성별을 판별하는 로직을 switch - case 로 완성하시오
 		// 자바의 switch case 와 동일
 		
+	},
+	bigNum : function() {
+		/* 80, 70, 60 일 경우 if 문으로 최대값 을 구하는 로직을 완성하시오 */
 	}
 	
 	
