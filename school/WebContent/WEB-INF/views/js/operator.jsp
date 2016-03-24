@@ -86,6 +86,12 @@ var opr = {
 		for (var int = i; int < 10; i++) {
 			// 7단 구구단을 출력하시오
 		}
+	},
+	sum1to100 : function() {
+		var sum=0,i=0;
+		while (condition) {
+			/* 1부터 100까지의 합을 출력하시오*/
+		}
 	}
 	
 	
