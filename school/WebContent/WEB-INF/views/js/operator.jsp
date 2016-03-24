@@ -116,14 +116,14 @@ var opr = {
 		/* 80, 70, 60 일 경우 if 문으로 최대값 을 구하는 로직을 완성하시오 */
 	},
 	gugudan : function() {
-		var i=0,j=0,hap ;
+		var i=0,j=0,hap=0,result='' ;
 		j = Number(prompt('단을 입력'));
 		for (var i=1; i <= 9; i++) {
 			// 7단 구구단을 출력하시오
 			hap = j*i
-			result += j+'*'+i+'='+ hap ;
+			result += (j+'*'+i+'='+ hap)+'<br/>' ;
 		}
-		
+		document.getElementById("result").innerHTML = result;
 	},
 	sum1to100 : function() {
 		var sum=0,i=0;
