@@ -5,9 +5,9 @@
     <div class="col-xs-12 col-sm-4 display-cell" >
 	    <ul class="nav nav-pills nav-stacked">
 	    	<li class="dropdown active"><a onclick="opr.sysout()">배열출력</a></li>
-	    	<li><a onclick="opr.score()">어벤저스</a>	</li>
-	    	<li><a onclick="opr.grade()">성적계산기</a>	</li>
-	    	<li></li>
+	    	<li class="dropdown active"><a onclick="opr.score()">어벤저스</a>	</li>
+	    	<li class="dropdown active"><a onclick="opr.grade()">성적계산기</a></li>
+	    	<li class="dropdown active"><a onclick="opr.gender()">성별 구분하기</a></li>
 	    </ul>
     </div>
     <div class="col-xs-12 col-sm-8 display-cell" id="result" style="border: 1px solid black;height: 500px">
@@ -70,22 +70,19 @@ var opr = {
 		60 D
 		미만 F
 		*/
-		var kor = prompt('국어점수'),eng = prompt('국어점수'), math = prompt('국어점수');
-		if (condition) {
-			
-		} else if(condition){
-
-		}else{
-			
-		}
+		var kor = Number(prompt('국어점수')),
+			eng = Number(prompt('영어점수')),
+			math = Number(prompt('수학점수'));
+		document.getElementById("result").innerHTML = "점수합계 : "+(kor+eng+math);
 	},
 	gender : function() {
 		/* 
 		800101-1234567 일 경우 flag 값은 1 이다라고 정의함
 		*/
-		var flag = 4; // 라면 성별을 판별하는 로직을 switch - case 로 완성하시오
+		var ssn = prompt('800101-1234567 로 입력해주세요');
+		var flag = ssn.charAt(7); // 라면 성별을 판별하는 로직을 switch - case 로 완성하시오
 		// 자바의 switch case 와 동일
-		
+		document.getElementById("result").innerHTML = "입력한 주민번호 성별  : "+flag;
 	},
 	bigNum : function() {
 		/* 80, 70, 60 일 경우 if 문으로 최대값 을 구하는 로직을 완성하시오 */
@@ -103,8 +100,8 @@ var opr = {
 		}
 	},
 	oddSum : function() {
-		var oddSum=0,evenSum=0;
-		for (var int = 0; int < 100; int++) {
+		var oddSum=0,evenSum=0,limit=prompt('홀수 짝수의 합을 구하기 위한 한계값 입력');
+		for (var i = 0; i < limit; i++) {
 			// 1부터 100 까지 수 중에서 홀수의 합 oddSum 과 
 			// 짝수들의 합 evenSum 을 구하시오
 		}
