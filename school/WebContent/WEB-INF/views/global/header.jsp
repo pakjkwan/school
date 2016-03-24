@@ -12,12 +12,28 @@
 <body>
 
 <header style="width:100%;margin: 0 auto">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-  
-  	<h3 style="color: white; text-align: center;">
+ <h3 style="color: white; text-align: center;">
   		<a href="${context}/global/main.do">한빛 성적 관리</a>
   	</h3>
-  </div>
-</nav>
+<ul class="nav nav-pills">
+ 
+  <li role="presentation" class="dropdown" style="margin-left: 100px">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      자바스크립트 <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+    	<li><a href="${context}/javascript/hello.do">자바스크립트 소개</a></li>
+    	<li><a href="">테스트 1</a></li>
+    	<li><a href="">테스트 1</a></li>
+    	<li><a href="">테스트 1</a></li>
+    	<li><a href="">테스트 1</a></li>
+    	<li><a href="">테스트 1</a></li>
+    	<li><a href="">테스트 1</a></li>
+    	<li><a href="">테스트 1</a></li>
+    	
+    </ul>
+  </li>
+</ul>
+
+
 </header>

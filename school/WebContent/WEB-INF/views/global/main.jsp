@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="header.jsp"/>
-	<img src="${context}/img/main/hanbit.jpg" alt="" width="100%" height="400px"/>
+	<img src="${context}/resources/img/main/hanbit.jpg" alt="" width="100%" height="400px"/>
 	<br />
 	<div style="margin-left: 43.5%;">
 		<div>

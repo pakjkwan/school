@@ -2,7 +2,7 @@
 <jsp:include page="../global/header.jsp"/>
 <div id="detail">
 		<div class="joinTop">
-			<h2 class="text-center">회원상세정보</h2>
+			<h2 class="text-center">${user.name} 상세정보</h2>
 		</div>
 		<div class="joinCenter row">
 			<form action="${context}/member/update_form.do" name="updateForm" class="form-horizontal">
