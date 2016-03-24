@@ -8,10 +8,11 @@
 	    	<li class="dropdown active"><a onclick="opr.score()">어벤저스</a>	</li>
 	    	<li class="dropdown active"><a onclick="opr.grade()">성적계산기</a></li>
 	    	<li class="dropdown active"><a onclick="opr.gender()">성별 구분하기</a></li>
+	    	<li class="dropdown active"><a onclick="opr.gugudan()">구구단</a></li>
 	    </ul>
     </div>
     <div class="col-xs-12 col-sm-8 display-cell" id="result" style="border: 1px solid black;height: 500px">
-        text
+        연산 결과
     </div>
 </div>
 </div>	
@@ -72,10 +73,37 @@ var opr = {
 		*/
 		var kor = Number(prompt('국어점수')),
 			eng = Number(prompt('영어점수')),
-			math = Number(prompt('수학점수'));
-		document.getElementById("result").innerHTML = "점수합계 : "+(kor+eng+math);
-	},
-	gender : function() {
+			math = Number(prompt('수학점수')),
+			avg = (kor+eng+math)/3
+			result = '';
+		
+		if (avg>=90) {
+			
+			result = 'A';
+			
+		} else if(avg>=80 && avg<90) {
+
+			result = 'B';
+			
+		} else if(avg>=70 && avg<80) {
+
+			result = 'C';
+			
+		} else if(avg>=60 && avg<70) {
+
+			result = 'D';
+			
+		} else {
+			
+			result = 'F';
+			
+		}
+
+		document.getElementById("result").innerHTML = "학점 : "+ result;
+			
+		
+		},
+		gender : function() {
 		/* 
 		800101-1234567 일 경우 flag 값은 1 이다라고 정의함
 		*/
@@ -88,10 +116,14 @@ var opr = {
 		/* 80, 70, 60 일 경우 if 문으로 최대값 을 구하는 로직을 완성하시오 */
 	},
 	gugudan : function() {
-		var i=0,j=0;
-		for (var int = i; int < 10; i++) {
+		var i=0,j=0,hap ;
+		j = Number(prompt('단을 입력'));
+		for (var i=1; i <= 9; i++) {
 			// 7단 구구단을 출력하시오
+			hap = j*i
+			result += j+'*'+i+'='+ hap ;
 		}
+		
 	},
 	sum1to100 : function() {
 		var sum=0,i=0;
