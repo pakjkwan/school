@@ -92,6 +92,13 @@ var opr = {
 		while (condition) {
 			/* 1부터 100까지의 합을 출력하시오*/
 		}
+	},
+	oddSum : function() {
+		var oddSum=0,evenSum=0;
+		for (var int = 0; int < 100; int++) {
+			// 1부터 100 까지 수 중에서 홀수의 합 oddSum 과 
+			// 짝수들의 합 evenSum 을 구하시오
+		}
 	}
 	
 	
