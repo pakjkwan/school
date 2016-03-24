@@ -1,15 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../global/header.jsp"/>
 <div class="container" style="width:1000px; margin:0 auto;">
-	<div>
-		<h3> 배열 출력하기</h3>
-		<button onclick="opr.sysout()">배열출력</button>	
-		<button onclick="opr.score()">성적출력</button>	
-	</div>
+	<div class="row display-table">
+    <div class="col-xs-12 col-sm-4 display-cell" >
+	    <ul class="nav nav-pills nav-stacked">
+	    	<li class="dropdown active"><a onclick="opr.sysout()">배열출력</a></li>
+	    	<li><a onclick="opr.score()">어벤저스</a>	</li>
+	    	<li><a onclick="opr.grade()">성적계산기</a>	</li>
+	    	<li></li>
+	    </ul>
+    </div>
+    <div class="col-xs-12 col-sm-8 display-cell" id="result" style="border: 1px solid black;height: 500px">
+        text
+    </div>
+</div>
 </div>	
 <script type="text/javascript">
 var opr = {
 	sysout : function() {
+		
 		var arr = ['사과','배','감','귤'];
 		for ( var i in arr) {
 			console.log(arr[i]+'\t');
@@ -61,7 +70,7 @@ var opr = {
 		60 D
 		미만 F
 		*/
-		var kor = 80, eng = 70, math = 60;
+		var kor = prompt('국어점수'),eng = prompt('국어점수'), math = prompt('국어점수');
 		if (condition) {
 			
 		} else if(condition){
