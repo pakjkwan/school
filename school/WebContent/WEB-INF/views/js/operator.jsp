@@ -80,6 +80,12 @@ var opr = {
 	},
 	bigNum : function() {
 		/* 80, 70, 60 일 경우 if 문으로 최대값 을 구하는 로직을 완성하시오 */
+	},
+	gugudan : function() {
+		var i=0,j=0;
+		for (var int = i; int < 10; i++) {
+			// 7단 구구단을 출력하시오
+		}
 	}
 	
 	
