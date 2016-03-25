@@ -47,9 +47,6 @@
 	</div>
 	<script>
 	$(function() {
-		$('#test').click(function() {
-			location.href = 'http://www.naver.com';
-		});
 		$('form').addClass('form-horizontal');
 		$('#updateBtn').addClass('btn btn-primary').click(function() {
 			location.href = '${context}/member/update_form.do?id=${member.id}'; 

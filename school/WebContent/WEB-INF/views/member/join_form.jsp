@@ -52,4 +52,9 @@
 			</form>
 		</div>
 	</div>
-	
+	<script>
+	$(function() {
+		$form = $('form');
+		$form.addClass()
+	});
+	</script>

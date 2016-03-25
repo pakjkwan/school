@@ -3,8 +3,8 @@
 <div class="container" style="width:1000px; margin:0 auto;">
 	<div class="row display-table">
     <div class="col-xs-12 col-sm-4 display-cell" >
-	    <ul class="nav nav-pills nav-stacked">
-	    	<li class="dropdown active"><a onclick="admin.memeberList()">전체학생 목록보기</a></li>
+	    <ul id="admin_sidebar" class="nav nav-pills nav-stacked">
+	    	<li ><a onclick="admin.memeberList()">전체학생 목록보기</a></li>
 	    	<li ><a onclick="admin.gradeList()">전체성적 목록보기</a>	</li>
 	    	<li ><a onclick="admin.searchById()">ID 로 회원검색</a></li>
 	    	<li ><a onclick="admin.searchByName()">이름으로 회원검색</a></li>
@@ -19,6 +19,16 @@
 <script src="${context}/resources/js/admin.js"></script>	
 <script type="text/javascript">
 $(document).ready(function() {
+	$('#admin_sidebar').children().first().addClass('dropdown active');
+	
 	
 });
 </script>
+
+
+
+
+
+
+
+
