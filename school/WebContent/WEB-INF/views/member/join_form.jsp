@@ -5,7 +5,7 @@
 			<h2 class="text-center">회원가입</h2>
 		</div>
 		<div class="joinCenter row">
-			<form action="${context}/member/join.do" method="post" name="joinForm" class="form-horizontal">
+			<form>
 				<fieldset class="joinField">
 					<div class="form-group">
 					 	<label for="input_id" class="col-sm-4 control-label">아이디</label>
