@@ -20,7 +20,10 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#admin_sidebar').children().first().addClass('dropdown active');
-	
+	$('#admin_sidebar').children().click(function() {
+		$(this).addClass('dropdown active');
+		$(this).siblings().removeClass('dropdown active');
+	});
 	
 });
 </script>

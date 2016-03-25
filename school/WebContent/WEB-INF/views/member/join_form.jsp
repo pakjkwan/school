@@ -44,8 +44,8 @@
 						</div>
 					</div>
 					<div class="input_button text-center">
-						<input type="submit" id="joinButton" class="btn btn-primary" value ="회원가입"/>
-						<input type="reset" id="cancleButton" class="btn btn-primary" value ="취소"/>
+						<button id="joinBtn">회원가입</button>
+						<button id="cancleBtn">회원가입</button>
 					</div>
 						
 				</fieldset>
@@ -55,6 +55,18 @@
 	<script>
 	$(function() {
 		$form = $('form');
-		$form.addClass()
+		$form.addClass('form-horizontal');
+		$('#joinBtn').addClass('btn btn-primary').click(function() {
+			$form.attr('method','post').attr('action','${context}/member/join.do').submit();
+		});
+		$('#cancleBtn').addClass('btn btn-primary').click(function() {
+			$form.reset();
+		});
 	});
 	</script>
+	
+	
+	
+	
+	
+	
