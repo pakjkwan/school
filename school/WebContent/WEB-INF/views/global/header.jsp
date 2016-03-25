@@ -34,6 +34,20 @@
     	<li><a href="${context}/js/pattern.do">패턴</a></li>
     </ul>
   </li>
+   <li role="presentation" class="dropdown" style="margin-left: 100px">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      jQuery <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+    	<li><a href="${context}/jquery/attr.do">속성</a></li>
+    	<li><a href="${context}/jquery/core.do">코어</a></li>
+    	<li><a href="${context}/jquery/dom.do">돔</a></li>
+    	<li><a href="${context}/jquery/event.do">이벤트</a></li>
+    	<li><a href="${context}/jquery/selector.do">셀렉터</a></li>
+    	<li><a href="${context}/jquery/traversing.do">트레벌싱</a></li>
+    	
+    </ul>
+  </li>
 </ul>
 
 
