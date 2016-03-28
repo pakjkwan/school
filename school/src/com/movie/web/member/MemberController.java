@@ -24,6 +24,7 @@ public class MemberController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Command command = new Command();
 		MemberBean member = new MemberBean();
+		HttpSession session = request.getSession();
 		String[] str = Seperator.extract(request);
 		String directory = str[0], action = str[1];
 		int result = 0;
@@ -32,14 +33,12 @@ public class MemberController extends HttpServlet {
 
 		case "update_form":
 			System.out.println("=== 수정 폼으로 진입 ===");
-			request.setAttribute("member", service.detail(request.getParameter("id")));
 			command = CommandFactory.createCommand(directory, action);
 			break;
 		case "delete":
 			if (service.remove(request.getParameter("id")) == 1) {
 				command = CommandFactory.createCommand(directory, "login_form");
 			} else {
-				request.setAttribute("member", service.detail(request.getParameter("id")));
 				command = CommandFactory.createCommand(directory, "detail");
 			}
 			break;
@@ -52,8 +51,6 @@ public class MemberController extends HttpServlet {
 					command = CommandFactory.createCommand(directory, "login_form");
 				} else {
 					System.out.println("=== 로그인 성공 ===");
-					request.setAttribute("member", member);
-					HttpSession session = request.getSession();
 					session.setAttribute("user", member);
 					command = CommandFactory.createCommand(directory, "detail");
 				}
@@ -82,12 +79,15 @@ public class MemberController extends HttpServlet {
 			member.setAddr(request.getParameter("addr"));
 			member.setBirth(Integer.parseInt(request.getParameter("birth")));
 			if (service.update(member) == 1) {
-				request.setAttribute("member", service.detail(request.getParameter("id")));
+				session.setAttribute("user", service.detail(request.getParameter("id")));
 				command = CommandFactory.createCommand(directory, "detail");
 			} else {
-				request.setAttribute("member", service.detail(request.getParameter("id")));
 				command = CommandFactory.createCommand(directory, "update_form");
 			}
+			break;
+		case "logout":
+			session.invalidate();
+			command = CommandFactory.createCommand(directory, "login_form");
 			break;
 		default:
 			command = CommandFactory.createCommand(directory, action);

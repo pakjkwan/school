@@ -12,7 +12,7 @@
 	    </ul>
     </div>
     <div class="col-xs-12 col-sm-8 display-cell" id="result" style="border: 1px solid black;height: 500px">
-        <jsp:include page="member_list.jsp"/>
+        <jsp:include page="../member/member_list.jsp"/>
     </div>
 </div>
 </div>
