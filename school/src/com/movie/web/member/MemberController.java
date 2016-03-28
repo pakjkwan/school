@@ -1,6 +1,8 @@
 package com.movie.web.member;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +17,7 @@ import com.movie.web.global.DispatcherServlet;
 import com.movie.web.global.Seperator;
 
 @WebServlet({ "/member/login_form.do", "/member/join_form.do", "/member/update_form.do", "/member/join.do",
-		"/member/update.do", "/member/delete.do", "/member/login.do" })
+		"/member/update.do", "/member/delete.do", "/member/login.do","/member/list.do" })
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	MemberService service = MemberServiceImpl.getInstance();
@@ -26,6 +28,7 @@ public class MemberController extends HttpServlet {
 		MemberBean member = new MemberBean();
 		HttpSession session = request.getSession();
 		String[] str = Seperator.extract(request);
+		List<MemberBean> list = new ArrayList<MemberBean>();
 		String directory = str[0], action = str[1];
 		int result = 0;
 
@@ -88,6 +91,8 @@ public class MemberController extends HttpServlet {
 		case "logout":
 			session.invalidate();
 			command = CommandFactory.createCommand(directory, "login_form");
+			break;
+		case "list":
 			break;
 		default:
 			command = CommandFactory.createCommand(directory, action);

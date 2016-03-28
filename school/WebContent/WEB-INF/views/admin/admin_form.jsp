@@ -12,13 +12,14 @@
 	    </ul>
     </div>
     <div class="col-xs-12 col-sm-8 display-cell" id="result" style="border: 1px solid black;height: 500px">
-        <jsp:include page="../member/member_list.jsp"/>
+       <%--  <jsp:include page="../member/member_list.jsp"/> --%>
     </div>
 </div>
 </div>
 <script src="${context}/resources/js/admin.js"></script>	
 <script type="text/javascript">
 $(document).ready(function() {
+	$('#result').load('${context}/member/list.do');
 	$('#admin_sidebar').children().first().addClass('dropdown active');
 	$('#admin_sidebar').children().click(function() {
 		$(this).addClass('dropdown active');

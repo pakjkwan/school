@@ -1,16 +1,10 @@
 package com.movie.web.member;
 
-import java.util.HashMap;
+import java.util.List;
 
 public class MemberServiceImpl implements MemberService{
 	private static	MemberService instance = new MemberServiceImpl();
-	HashMap<String,MemberBean> map;
 	MemberDAO dao = MemberDAOImpl.getInstance();
-	
-	public MemberServiceImpl() {
-		map = new HashMap<String,MemberBean>();
-	}
-	
 	
 	public static MemberService getInstance() {
 		return instance;
@@ -66,6 +60,12 @@ public class MemberServiceImpl implements MemberService{
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public List<MemberBean> getList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

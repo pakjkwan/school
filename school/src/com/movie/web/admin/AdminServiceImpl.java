@@ -1,29 +1,15 @@
 package com.movie.web.admin;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.movie.web.grade.GradeMemberBean;
-import com.movie.web.member.MemberBean;
-import com.movie.web.member.MemberDAO;
-import com.movie.web.member.MemberDAOImpl;
-import com.movie.web.member.MemberService;
-import com.movie.web.member.MemberServiceImpl;
 
 public class AdminServiceImpl implements AdminService{
-	private static	AdminService instance = new AdminServiceImpl();
-	HashMap<String,AdminBean> map;
+	private static AdminService instance = new AdminServiceImpl();
 	AdminDAO dao = AdminDAOImpl.getInstance();
-	public AdminServiceImpl() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	public static AdminService getInstance() {
 		return instance;
-	}
-
-	public static void setInstance(AdminService instance) {
-		AdminServiceImpl.instance = instance;
 	}
 
 	@Override
