@@ -39,7 +39,7 @@
 		$('#paper_plane').css('border','0').css('height','160px').css('height','160px').css('width','160px');	
 		$('#loginButton').css('width','150px');
 		$('#loginButton').click(function() {
-			$('form').attr('action','${context}/member/login.do')
+			$('form').attr('action','${context}/admin/login.do')
 			.attr('method','post').submit();
 			});
 		});

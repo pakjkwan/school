@@ -17,14 +17,16 @@ import com.movie.web.member.MemberBean;
 /**
  * Servlet implementation class AdminController
  */
-@WebServlet("/admin/admin_form.do")
+@WebServlet({"/admin/admin_form.do","/admin/login_form.do","/admin/login.do"})
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	Command command = new Command();
-		MemberBean member = new MemberBean();
+		AdminBean admin = new AdminBean();
+		HttpSession session = request.getSession();
+		AdminService service = AdminServiceImpl.getInstance();
 		String[] str = Seperator.extract(request);
 		String directory = str[0], action = str[1];
 		int result = 0;
@@ -32,7 +34,22 @@ public class AdminController extends HttpServlet {
 		switch (action) {
 
 		case "admin_form": command = CommandFactory.createCommand(directory, action); break;
+		case "login" :
+			System.out.println("관리자 로그인 진입");
+			admin.setId(request.getParameter("id"));
+			admin.setPassword(request.getParameter("password"));
+			AdminBean temp = service.getAdmin(admin);
+			if (temp == null) {
+				System.out.println("관리자 로그인 실패");
+				command = CommandFactory.createCommand(directory, "login_form");
+			} else {
+				System.out.println("관리자 로그인 성공");
+				session.setAttribute("admin", temp);
+				command = CommandFactory.createCommand(directory, "admin_form");
+			}
 			
+			break;
+		
 		default:
 			command = CommandFactory.createCommand(directory, action);
 			break;
