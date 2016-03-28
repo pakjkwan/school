@@ -1,11 +1,12 @@
 package com.movie.web.member;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.movie.web.global.Constants;
 import com.movie.web.global.DatabaseFactory;
@@ -154,6 +155,30 @@ public class MemberDAOImpl implements MemberDAO{
 		}
 		
 		return result;
+	}
+
+	@Override
+	public List<MemberBean> selectList() {
+		List<MemberBean> list = new ArrayList<MemberBean>();
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM Member");
+			
+			while(rs.next()){
+				MemberBean temp = new MemberBean();
+				temp.setId(rs.getString("id"));
+				temp.setName(rs.getString("name"));
+				temp.setPassword(rs.getString("password"));
+				temp.setAddr(rs.getString("addr"));
+				temp.setBirth(rs.getInt("birth"));
+				list.add(temp);
+			}
+		} catch (Exception e) {
+			System.out.println("getList()에서 에러 발생");
+			e.printStackTrace();
+		}
+		System.out.println("DAO 에서 멤버리스트 출력 "+list);
+		return list;
 	}
 
 }

@@ -4,11 +4,9 @@
 	<div class="row display-table">
     <div class="col-xs-12 col-sm-4 display-cell" >
 	    <ul id="admin_sidebar" class="nav nav-pills nav-stacked">
-	    	<li ><a onclick="admin.memeberList()">전체학생 목록보기</a></li>
-	    	<li ><a onclick="admin.gradeList()">전체성적 목록보기</a>	</li>
-	    	<li ><a onclick="admin.searchById()">ID 로 회원검색</a></li>
-	    	<li ><a onclick="admin.searchByName()">이름으로 회원검색</a></li>
-	    	<li ><a onclick="admin.addScore()">학생 점수 입력</a></li>
+	    	<li ><a href="#" id="member_list">전체학생 목록보기</a></li>
+	    	<li ><a href="#" id="grade_list">전체성적 목록보기</a>	</li>
+	    	<li ><a href="#" id="grade_regist">학생 점수 입력</a></li>
 	    </ul>
     </div>
     <div class="col-xs-12 col-sm-8 display-cell" id="result" style="border: 1px solid black;height: 500px">
@@ -25,7 +23,18 @@ $(document).ready(function() {
 		$(this).addClass('dropdown active');
 		$(this).siblings().removeClass('dropdown active');
 	});
-	
+	$('#member_list').click(function() {
+		$('#result').empty();
+		$('#result').load('${context}/member/list.do');
+	});
+	$('#grade_list').click(function() {
+		$('#result').empty();
+		$('#result').load('${context}/grade/list.do');
+	});
+	$('grade_regist').click(function() {
+		$('#result').empty();
+		$('#result').load('${context}/grade/grade_add.do');
+	});
 });
 </script>
 

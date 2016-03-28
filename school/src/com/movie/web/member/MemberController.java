@@ -93,6 +93,8 @@ public class MemberController extends HttpServlet {
 			command = CommandFactory.createCommand(directory, "login_form");
 			break;
 		case "list":
+			request.setAttribute("list", service.getList());
+			command = CommandFactory.createCommand(directory, "member_list");
 			break;
 		default:
 			command = CommandFactory.createCommand(directory, action);

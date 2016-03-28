@@ -64,8 +64,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<MemberBean> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectList();
 	}
 
 }

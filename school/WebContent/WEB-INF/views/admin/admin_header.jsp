@@ -29,22 +29,25 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">학생검색 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">이름검색</a></li>
-            <li><a href="#">ID검색</a></li>
-          </ul>
         </li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">검 색</button>
+        <button type="submit" id="searchBtn" class="btn btn-default">검 색</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">로그아웃</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 </header>
+<script>
+	$(function() {
+		$('#searchBtn').click(function() {
+			$('form').attr('action','${context}/member/search.do');
+		});
+	});
+</script>
