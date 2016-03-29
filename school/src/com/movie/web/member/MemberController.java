@@ -69,6 +69,8 @@ public class MemberController extends HttpServlet {
 			member.setPassword(request.getParameter("password"));
 			member.setAddr(request.getParameter("addr"));
 			member.setBirth(Integer.parseInt(request.getParameter("birth")));
+			member.setMajor(request.getParameter("major"));
+			member.setSubject(request.getParameter("subject"));
 			if (service.join(member) == 1) {
 				command = CommandFactory.createCommand(directory, "login_form");
 			} else {

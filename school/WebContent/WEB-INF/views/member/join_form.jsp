@@ -50,19 +50,19 @@
 					<div class="form-group">
 						<label for="input_name" class="col-sm-4 control-label">수강과목</label>
 					 	<div class="col-sm-4">
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> Java
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> JSP
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> SQL
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> Spring
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> 파이썬
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> 노드JS
-							<input type="checkbox" class="form-control" id="subject" name="subject" /> 안드로이드
+							<input type="checkbox" class="form-control" id="subject" name="subject" value="java" /> Java
+							<input type="checkbox" class="form-control" id="subject" name="subject" value="jsp"/> JSP
+							<input type="checkbox" class="form-control" id="subject" name="subject" value="sql"/> SQL
+							<input type="checkbox" class="form-control" id="subject" name="subject" value="spring"/> Spring
+							<input type="checkbox" class="form-control" id="subject" name="subject" value="python"/> 파이썬
+							<input type="checkbox" class="form-control" id="subject" name="subject" value="nodejs"/> 노드JS
+							<input type="checkbox" class="form-control" id="subject" name="subject" value="android"/> 안드로이드
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="input_name" class="col-sm-4 control-label">전 공</label>
 					 	<select name="major" id="major">
-					 		<option value="computer">컴퓨터공학</option>
+					 		<option value="computer" selected>컴퓨터공학</option>
 					 		<option value="info">정보통신</option>
 					 		<option value="security">정보보안</option>
 					 	</select>
@@ -71,7 +71,7 @@
 					
 					<div class="input_button text-center">
 						<button id="joinBtn">회원가입</button>
-						<button id="cancleBtn">회원가입</button>
+						<button id="cancleBtn">취소</button>
 					</div>
 						
 				</fieldset>
@@ -83,12 +83,31 @@
 		$form = $('form');
 		$form.addClass('form-horizontal');
 		$('#joinBtn').addClass('btn btn-primary').click(function() {
+			var id = $('input:text[name=id]').val();
+			var password = $('input:text[name=password]').val();
+			var name = $('input:text[name=name]').val();
+			var birth = $('input:text[name=birth]').val();
+			var addr = $('input:radio[name=addr]').val();
+			var major = $('select[name=major] option:selected').val();
+			var subjects = formTag.checkbox($('input:checkbox[name=subject]:checked')); 
+			alert('아이디 :'+id+',비번 : '+password+',이름 : '
+					+name+', 생년월일 : '+birth+', 주소 :'+addr
+					+',전공 : '+major+', 수강과목 : '+subjects );
 			$form.attr('method','post').attr('action','${context}/member/join.do').submit();
 		});
 		$('#cancleBtn').addClass('btn btn-primary').click(function() {
 			$form.reset();
 		});
 	});
+	var formTag = {};
+	formTag.checkbox = function(subjects) {
+		var temp = [];
+		subjects.each(function() {
+			temp.push($(this).val());
+		});
+		return temp;
+	}
+	
 	</script>
 	
 	
