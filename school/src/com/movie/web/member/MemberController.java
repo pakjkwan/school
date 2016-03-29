@@ -2,7 +2,9 @@ package com.movie.web.member;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -64,13 +66,28 @@ public class MemberController extends HttpServlet {
 			}
 			break;
 		case "join":
+			/*
+			Map<String,String[]> map = new HashMap<String,String[]>();
+			map = request.getParameterMap();
+			String[] arr = map.get("subject"); // java/jsp/spring
+			StringBuffer buff = new StringBuffer();
+			for (int i = 0; i < arr.length; i++) {
+				buff.append(arr[i]+"/");
+			}
+			*/
+			
+			String[] arr = request.getParameterValues("subject");
+			StringBuffer buff = new StringBuffer();
+			for (int i = 0; i < arr.length; i++) {
+				buff.append(arr[i]+"/");
+			}
 			member.setId(request.getParameter("id"));
-			member.setName(request.getParameter("name"));
-			member.setPassword(request.getParameter("password"));
-			member.setAddr(request.getParameter("addr"));
-			member.setBirth(Integer.parseInt(request.getParameter("birth")));
-			member.setMajor(request.getParameter("major"));
-			member.setSubject(request.getParameter("subject"));
+			member.setName(request.getParameter("id"));
+			member.setPassword(request.getParameter("id"));
+			member.setAddr(request.getParameter("id"));
+			member.setBirth(Integer.parseInt(request.getParameter("id")));
+			member.setMajor(request.getParameter("id"));
+			member.setSubject(buff.toString());
 			if (service.join(member) == 1) {
 				command = CommandFactory.createCommand(directory, "login_form");
 			} else {
