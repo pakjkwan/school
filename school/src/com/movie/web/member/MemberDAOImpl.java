@@ -33,13 +33,15 @@ public class MemberDAOImpl implements MemberDAO{
 	public int insert(MemberBean member) {
 		int result = 0;
 		try {
-			pstmt = conn.prepareStatement("INSERT INTO Member(id,name,password,addr,birth)"
-						+"VALUES (?,?,?,?,?)");
+			pstmt = conn.prepareStatement("INSERT INTO Member(id,name,password,addr,birth,major,subject)"
+						+"VALUES (?,?,?,?,?,?,?)");
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getName());
 			pstmt.setString(3, member.getPassword());
 			pstmt.setString(4, member.getAddr());
 			pstmt.setInt(5, member.getBirth());
+			pstmt.setString(6, member.getMajor());
+			pstmt.setString(7, member.getSubject());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -62,6 +64,8 @@ public class MemberDAOImpl implements MemberDAO{
 				temp.setPassword(rs.getString("password"));
 				temp.setAddr(rs.getString("addr"));
 				temp.setBirth(rs.getInt("birth"));
+				temp.setMajor(rs.getString("major"));
+				temp.setSubject(rs.getString("subject"));
 			}
 			
 		} catch (Exception e) {
@@ -91,6 +95,8 @@ public class MemberDAOImpl implements MemberDAO{
 				temp.setPassword(rs.getString("password"));
 				temp.setAddr(rs.getString("addr"));
 				temp.setBirth(rs.getInt("birth"));
+				temp.setMajor(rs.getString("major"));
+				temp.setSubject(rs.getString("subject"));
 			}
 			
 		} catch (Exception e) {
@@ -171,6 +177,8 @@ public class MemberDAOImpl implements MemberDAO{
 				temp.setPassword(rs.getString("password"));
 				temp.setAddr(rs.getString("addr"));
 				temp.setBirth(rs.getInt("birth"));
+				temp.setMajor(rs.getString("major"));
+				temp.setSubject(rs.getString("subject"));
 				list.add(temp);
 			}
 		} catch (Exception e) {

@@ -11,7 +11,6 @@ public class MemberMain {
 			switch (s.nextInt()) {
 			case 1: 
 				System.out.println("아이디,비번,이름,주소 입력,생년월일");
-				System.out.println("Main 회원가입 결과 : "+service.join(new MemberBean(s.next(),s.next(),s.next(),s.next(),s.nextInt()))); 
 				break;
 			case 2: break;
 			case 3: 
